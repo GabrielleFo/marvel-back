@@ -37,7 +37,7 @@ app.get("/comics", async (req, res) => {
     const hash = md5(ts + privateKey + publicKey);
 
     const response = await axios.get(
-      `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=100&sort=+name`
+      `http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=100&sort=+results.name`
     );
     res.json(response.data.data);
   } catch (error) {
