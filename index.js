@@ -47,14 +47,14 @@ app.get("/comics", async (req, res) => {
 
 //route pour filtrer les comics via l'id des personnages
 
-app.get("/characterCommics", async (req, res) => {
+app.get("/characterCommics/:charactedId", async (req, res) => {
   try {
     // Générer le ts
     const ts = uid2(8);
     const hash = md5(ts + privateKey + publicKey);
 
     const response = await axios.get(
-      `http://gateway.marvel.com/v1/public/characters/{characterId}/comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+      `http://gateway.marvel.com/v1/public/characters/{characterId}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
     );
     res.json(response.data.data);
   } catch (error) {
