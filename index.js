@@ -49,14 +49,14 @@ app.get("/comics", async (req, res) => {
 
 //ceette route ne marchge pas
 
-app.get("/charactercommics/:characterId", async (req, res) => {
+app.get("/charactercommics/:id", async (req, res) => {
   try {
     // Générer le ts
     const ts = uid2(8);
     const hash = md5(ts + privateKey + publicKey);
 
     const response = await axios.get(
-      `http://gateway.marvel.com/v1/public/characters/${characterId}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+      `http://gateway.marvel.com/v1/public/characters/${id}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
     );
     res.json(response.data.data);
   } catch (error) {
