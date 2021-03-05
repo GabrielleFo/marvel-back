@@ -51,6 +51,7 @@ app.get("/comics", async (req, res) => {
 
 app.get("/charactercommics/:id", async (req, res) => {
   try {
+    const id = req.params.id;
     // Générer le ts
     const ts = uid2(8);
     const hash = md5(ts + privateKey + publicKey);
