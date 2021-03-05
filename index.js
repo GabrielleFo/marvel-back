@@ -47,7 +47,9 @@ app.get("/comics", async (req, res) => {
 
 //route pour filtrer les comics via l'id des personnages
 
-app.get("/charactercommics/:charactedId", async (req, res) => {
+//ceette route ne marchge pas
+
+app.get("/charactercommics/:characterId", async (req, res) => {
   try {
     // Générer le ts
     const ts = uid2(8);
